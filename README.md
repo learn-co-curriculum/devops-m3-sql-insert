@@ -86,12 +86,34 @@ INSERT INTO pet (id, name, species, age)
 VALUES (6, 'Herbie', 'fish', 4);
 ```
 
-- Lil' Bub the cat requires two single quotes between "Lil" and "Bub" to escape
-  the single quote character.
+Notice above that some INSERT statements are missing the values for "age" or
+"breed". We might be wondering what will happen when they are omitted? In
+Python, we saw we could use `None` to specify that no value will be given to a
+variable. In SQL, we would use the keyword `null` to represent a field not
+having a value. Let's look at some of these INSERT statements a little closer:
+
+- Lil' Bub, the cat, requires two single quotes between "Lil" and "Bub" to
+  escape the single quote character.
 - Honey the dog is not given a value for age. The value `null` will be stored
   in that column.
+  - Instead of directly omitting the age, we could have also written the
+    insert statement as:
+
+  ```sql
+  INSERT INTO pet (id, name, species, breed, age)
+  VALUES (5, 'Honey', 'dog', 'Cavachon', null)
+   ``` 
+
 - Herbie the fish is not given a value for breed. The value `null` will be
   stored in that column.
+  - Instead of directly omitting the breed, we could have also written the
+    insert statement as:
+
+  ```sql
+  INSERT INTO pet(id, name, species, breed, age)
+  VALUES (6, 'Herbie', 'fish', null, 4)
+  ```
+
 - A SQL comment line starts with two dashes -- followed by a space.
 
 The query tool can execute multiple SQL statements.
